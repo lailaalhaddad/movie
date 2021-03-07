@@ -3,13 +3,14 @@ import movieStore from "../movieStore";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import Watched from "./Watched";
+import { Description } from "../styles";
 
 const Watchedlist = () => {
   const [query, setQuery] = useState("");
   const filteredmovies = movieStore.movies.filter(
     (movie) =>
       movie.name.toLowerCase().includes(query.toLowerCase()) &&
-      movie.status === false
+      movie.stat === false
   );
   const watchedList = filteredmovies.map((movie) => (
     <Watched movie={movie} key={movie.id} />
@@ -17,7 +18,7 @@ const Watchedlist = () => {
 
   return (
     <div>
-      <p>Watchedlist</p>
+      <Description>Watchedlist</Description>
       <SearchBar setQuery={setQuery} />
       {watchedList}
     </div>

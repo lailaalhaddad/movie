@@ -3,12 +3,10 @@ import { action, makeObservable, observable } from "mobx";
 
 class MovieStore {
   movies = movies;
-  // statMovie = (status) => {
-  //   this
-  // }
+
   addMovie = (data) => {
     let newMovie = data;
-    newMovie.id = this.movies.length - 1;
+    newMovie.id = this.movies.length + 1;
     console.log(newMovie);
     this.movies.push(newMovie);
     console.log(this.movies);
