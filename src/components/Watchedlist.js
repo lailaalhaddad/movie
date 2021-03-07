@@ -1,27 +1,26 @@
 import { observer } from "mobx-react";
-import movies from "./movies";
+import movieStore from "../movieStore";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import Watch from "./Watch";
-import movieStore from "../movieStore";
+import Watched from "./Watched";
 
-const WatchList = () => {
+const Watchedlist = () => {
   const [query, setQuery] = useState("");
   const filteredmovies = movieStore.movies.filter(
     (movie) =>
       movie.name.toLowerCase().includes(query.toLowerCase()) &&
-      movie.status === true
+      movie.status === false
   );
-  const watchList = filteredmovies.map((movie) => (
-    <Watch movie={movie} key={movie.id} />
+  const watchedList = filteredmovies.map((movie) => (
+    <Watched movie={movie} key={movie.id} />
   ));
 
   return (
     <div>
-      <p>Watchlist</p>
+      <p>Watchedlist</p>
       <SearchBar setQuery={setQuery} />
-      {watchList}
+      {watchedList}
     </div>
   );
 };
-export default observer(WatchList);
+export default observer(Watchedlist);
