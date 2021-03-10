@@ -3,7 +3,7 @@ import WatchList from "./components/Watchlist";
 import { observer } from "mobx-react";
 import movieStore from "./movieStore";
 import Watchedlist from "./components/Watchedlist";
-import { ListWrapper, Title } from "./styles";
+import { ListWrapper, Title, MiniList } from "./styles";
 function App() {
   return (
     <div>
@@ -17,9 +17,9 @@ function App() {
         <div>
           <WatchList movies={movieStore.movies} />
         </div>
-        <div>
+        <MiniList>
           <Watchedlist movies={movieStore.movies} />
-        </div>
+        </MiniList>
       </ListWrapper>
     </div>
   );

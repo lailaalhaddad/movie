@@ -1,6 +1,6 @@
 import { useState } from "react";
 import movieStore from "../movieStore";
-import { SearchBarStyled } from "../styles";
+import { SearchBarStyled, AddButton } from "../styles";
 const MovieCreate = () => {
   const [data, setData] = useState("");
 
@@ -12,7 +12,7 @@ const MovieCreate = () => {
         name="Movie"
         placeholder="Movies..."
       />
-      <button onClick={() => movieStore.addMovie(data)}>+Add</button>
+      <AddButton onClick={() => movieStore.addMovie(data)}>+Add</AddButton>
     </div>
   );
 };
